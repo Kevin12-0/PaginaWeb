@@ -1,7 +1,8 @@
 from django import forms
-from .models import usuaios
-class usuarioform(forms.ModelForm):
+from .models import usuarios
+
+class usuarioForm(forms.ModelForm):
     class Meta:
-        model = usuaios
-        fields = ['Nombre', 'apellido', 'email', 'contrasena']
+        model = usuarios
+        fields = ['nombre', 'apellido', 'email', 'contrasena']
         
