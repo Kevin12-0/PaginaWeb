@@ -9,7 +9,7 @@ def newUser(request):
         usuarios_form = usuarioForm(request.POST)
         if usuarios_form.is_valid():
             usuarios_form.save()
-            return render('index')
+            return redirect('Index')
     else:
         usuarios_form = usuarioForm
-    return render(request,'nuevo_usuario.html',{'usuarios_form':usuarios_form})
+    return render(request,'usuario/nuevo_usuario.html',{'usuarios_form':usuarios_form})
