@@ -9,7 +9,16 @@
 <body>
     <form method="POST">
         {% csrf_token %}
-        {{ usuarios_form.as_p }}
+        
+        <label>Nombre(s)</label>
+        <input type="text" name="nombre">
+        <label>Apellidos</label>
+        <input type="text" name="apellido">
+        <label>Correo</label>
+        <input type="text" name="email">
+        <label>Contraseña</label>
+        <input type="password" name="contrasena">
+
         <button type="submit">Registrar</button>
     </form>
 </body>
