@@ -1,11 +1,10 @@
-from statistics import mode
 from django.shortcuts import render, redirect
 from .forms import usuarioForm
 from .models import Usuarios
-def Home(request):
+# Create your views here.
+def index(request):
     return render(request,'index.html')
-
-def newUser(request):
+def registrarUsuario(request):
     if request.method == 'POST':
         usuarios_form = usuarioForm(request.POST)
         if usuarios_form.is_valid():
@@ -13,8 +12,9 @@ def newUser(request):
             return redirect('Index')
     else:
         usuarios_form = usuarioForm
-    return render(request,'usuario/nuevo_usuario.html',{'usuarios_form':usuarios_form})
+    return render(request, 'usuarios/registro_usuario.html',{'usuarios_form':usuarios_form})
+def listar_usuarios(request):
+    context = {'listar_usuarios': Usuarios.objects.all()}
+    return render(request, 'usuarios/listado_usuario.html',context)
+    
 
-def listarUsuarios(request):
-    usuarios = Usuarios.objects.all()
-    return render(request,'usuario/listar_usuarios.html',{'usuarios':usuarios})

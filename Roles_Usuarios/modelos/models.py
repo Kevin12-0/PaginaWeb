@@ -1,7 +1,8 @@
-from hashlib import blake2b
 from django.db import models
+from hashlib import blake2b
 
 # Create your models here.
+
 
 class Usuarios (models.Model):
     id = models.AutoField(primary_key=True)
@@ -14,21 +15,22 @@ class Usuarios (models.Model):
     class Meta:
         verbose_name = 'Usuarios'
         verbose_name_plural = 'Usuario(s)'
-        ordering = ['nombre']
+        ordering = ['id']
     
     def __str__(self):
         return self.nombre
 
-class ruta(models.Model):
+class Ruta(models.Model):
     id = models.AutoField(primary_key=True)
     ruta = models.CharField('Ruta',max_length=200,blank= False, null=False)
+    cp = models.CharField(max_length=5,blank=False, null=False)
     usuario_id = models.OneToOneField(Usuarios, on_delete= models.CASCADE)
     fecha_creacion = models.DateField('Fecha de creacion o modificación', auto_now_add=False, auto_now = True)
 
     class Meta:
         verbose_name = 'ruta'
         verbose_name_plural = 'rutas'
-        ordering = ['ruta']
+        ordering = ['id']
 
     def __str__(self):
         return self.ruta

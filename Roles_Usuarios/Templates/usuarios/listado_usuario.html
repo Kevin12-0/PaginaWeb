@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Usuarios</title>
+</head>
+<body>
+    <table>
+        <td>ID</td>
+        <td>Nombre</td>
+        <td>APELLIDO</td>
+        <td>CORREO</td>
+        <td>CONTRASEÑA</td>
+        <td>FECHA DE CREACION/MODIFICACION</td> 
+        <tbody>
+            {% for Usuarios in listar_usuarios %}
+            <tr>
+                <td>{{ Usuarios.id }}</td>
+                <td>{{ Usuarios.nombre }}</td>
+                <td>{{ Usuarios.apellido }}</td>
+                <td>{{ Usuarios.email }}</td>
+                <td>{{ Usuarios.contrasena }}</td>
+                <td>{{ Usuarios.fecha_creacion }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
