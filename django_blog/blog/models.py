@@ -1,6 +1,6 @@
 from statistics import mode
 from django.db import models
-
+from ckeditor.fields import RichTextField
 # Create your models here.
 class Categoria(models.Model):
     id = models.AutoField(primary_key=True)
@@ -11,7 +11,7 @@ class Categoria(models.Model):
         verbose_name = 'Categoria'
         verbose_name_plural = 'Categorias'
     def __str__(self):
-        return self.name
+        return self.nombre
 
 class Autor(models.Model):
     id = models.AutoField(primary_key=True)
@@ -31,3 +31,23 @@ class Autor(models.Model):
 
     def __str__(self):
         return '{0},{1}'.format(self.apellidos, self.nombres)
+
+class Post(models.Model):
+    id = models.AutoField(primary_key=True)
+    titulo = models.CharField('Titulo de Post', max_length=255, blank= False, null=False)
+    slug = models.CharField('Slug', max_length=255, blank= False, null=False)
+    descripcion = models.CharField('Descripcion', max_length=100, blank= False, null=False)
+    contenido = RichTextField('Contenido')
+    imagen = models.URLField('imagen',max_length= 255, blank= False, null=False)
+    autor = models.ForeignKey(Autor, on_delete = models.CASCADE)
+    categoria = models.ForeignKey(Categoria, on_delete = models.CASCADE)
+    estado = models.BooleanField('Publicado/No publicado', default=True)
+    fecha_creacion = models.DateField('Fecha de creacion o modificación', auto_now_add=True, auto_now = False)
+
+    class Meta:
+        verbose_name = 'Post'
+        verbose_name_plural = 'Posts'
+    
+    def __str__(self):
+        return self.titulo
+
