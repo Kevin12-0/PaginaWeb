@@ -11,5 +11,7 @@ def tecnologia(request):
 def videojuegos(request):
     return render(request, 'videojuegos.html')
 def musica(request):
-    return render(request, 'musica.html')   
+    return render(request, 'musica.html') 
+def tutoriales(request):
+    return render(request, 'tutoriales.html')  
     
