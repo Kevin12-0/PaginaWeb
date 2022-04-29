@@ -6,4 +6,5 @@ urlpatterns = [
      path('generales/',generales, name = 'generales'),
      path('tecnologia/',tecnologia, name = 'tecnologia'),
      path('videojuegos/',videojuegos,name='videojuegos'),
+     path('musica/',musica,name = 'musica'),
 ]

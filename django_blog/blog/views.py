@@ -9,5 +9,7 @@ def generales(request):
 def tecnologia(request):
     return render(request, 'tecnologia.html')
 def videojuegos(request):
-    return render(request, 'videojuegos.html')   
+    return render(request, 'videojuegos.html')
+def musica(request):
+    return render(request, 'musica.html')   
     
