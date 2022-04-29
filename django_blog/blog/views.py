@@ -6,4 +6,7 @@ def home(request):
     return render(request, 'index.html')
 def generales(request):
     return render(request, 'generales.html')
+def tecnologia(request):
+    return render(request, 'tecnologia.html')
+    
     

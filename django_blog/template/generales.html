@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Django</title>
-</head>
-<body>
-    
-</body>
-</html>
+{% extends "index.html" %}
+{% load static %}
+{% block titulo %} Generales {% endblock titulo %}
+{% block titulo_principal %}Generales{% endblock titulo_principal %}
+{% block imagen %}{% static 'assets/img/generales.jfif' %}{% endblock imagen %}
