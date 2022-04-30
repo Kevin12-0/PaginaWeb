@@ -3,7 +3,7 @@ from .models import *
 # Create your views here.
 
 def home(request):
-    posts = Post.objects.filter(estado = False)
+    posts = Post.objects.filter(estado = True)
     return render(request, 'index.html',{'posts':posts})
 def generales(request):
     return render(request, 'generales.html')
