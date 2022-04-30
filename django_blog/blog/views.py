@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import *
 from django.db.models import Q
+from django.core.paginator import Paginator
 # Create your views here.
 
 
@@ -10,6 +11,9 @@ def home(request):
     if queryset:
         posts = Post.objects.filter(
             Q(titulo__icontains=queryset) | Q(descripcion__icontains=queryset)).distinct()
+    paginator = Paginator(posts, 2)
+    page = request.GET.get('page')
+    posts = paginator.get_page(page)
     return render(request, 'index.html', {'posts': posts})
 
 
@@ -27,7 +31,9 @@ def generales(request):
             Q(titulo__icontains=queryset) | Q(descripcion__icontains=queryset),
             estado=True,
             categoria=Categoria.objects.get(nombre__iexact='Generales')).distinct()
-
+    paginator = Paginator(posts, 2)
+    page = request.GET.get('page')
+    posts = paginator.get_page(page)
     return render(request, 'generales.html', {'posts': posts})
 
 
@@ -39,6 +45,9 @@ def tecnologia(request):
         posts = Post.objects.filter(
             Q(titulo__icontains=queryset) | Q(descripcion__icontains=queryset),
             estado=True, categoria=Categoria.objects.get(nombre__iexact='Tecnologia')).distinct()
+    paginator = Paginator(posts, 2)
+    page = request.GET.get('page')
+    posts = paginator.get_page(page)
     return render(request, 'tecnologia.html', {'posts': posts})
 
 
@@ -51,6 +60,9 @@ def videojuegos(request):
             Q(titulo__icontains=queryset) | Q(descripcion__icontains=queryset),
             estado=True, categoria=Categoria.objects.get(nombre__iexact='Videojuegos')
         ).distinct()
+    paginator = Paginator(posts, 2)
+    page = request.GET.get('page')
+    posts = paginator.get_page(page)
     return render(request, 'videojuegos.html', {'posts': posts})
 
 
@@ -63,6 +75,9 @@ def musica(request):
             Q(titulo__icontains=queryset) | Q(descripcion__icontains=queryset),
             estado=True, categoria=Categoria.objects.get(nombre__iexact='Musica')
         ).distinct()
+    paginator = Paginator(posts, 2)
+    page = request.GET.get('page')
+    posts = paginator.get_page(page)
     return render(request, 'musica.html', {'posts': posts})
 
 
@@ -75,4 +90,7 @@ def tutoriales(request):
             Q(titulo__icontains=queryset) | Q(descripcion__icontains=queryset),
             estado=True, categoria=Categoria.objects.get(nombre__iexact='Tutoriales')
         ).distinct()
+    paginator = Paginator(posts, 2)
+    page = request.GET.get('page')
+    posts = paginator.get_page(page)
     return render(request, 'tutoriales.html', {'posts': posts})

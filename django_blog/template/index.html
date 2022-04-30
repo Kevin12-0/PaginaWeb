@@ -98,12 +98,31 @@
                         <h1>No existaen posts registrados</h1>
                     {% endif %}
                     <!-- Pager-->
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
                 </div>
             </div>
         </div>
         {% endblock contenido %}
         <!-- Footer-->
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6 float-right">
+                    {% if posts.has_previous %}
+                        <div class="clearfix">
+                            <a href="?page={{ posts.previous_page_number }}{% if request.GET.search %} &={{ request.GET.search }}{% endif %}" class="btn btn-primary float-right">Anterior </a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 float-right">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6 float-right">
+                    {% if posts.has_next %}
+                        <div class="clearfix">
+                            <a href="?page={{ posts.next_page_number }} {% if request.GET.search %} &={{ request.GET.search }}{% endif %}" class="btn btn-primary float-right">Siguiente</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
         <footer class="border-top">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
