@@ -1,9 +1,10 @@
 from django.shortcuts import render
-
+from .models import *
 # Create your views here.
 
 def home(request):
-    return render(request, 'index.html')
+    posts = Post.objects.filter(estado = False)
+    return render(request, 'index.html',{'posts':posts})
 def generales(request):
     return render(request, 'generales.html')
 def tecnologia(request):

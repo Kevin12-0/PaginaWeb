@@ -55,6 +55,7 @@
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <!-- Post preview-->
+                    {% if posts %}
                     <div class="post-preview">
                         <a href="post.html">
                             <h2 class="post-title">Man must explore, and this is exploration at its greatest</h2>
@@ -68,6 +69,9 @@
                     </div>
                     <!-- Divider-->
                     <hr class="my-4" />
+                    {% else %}
+                        <h1>No existaen posts registrados</h1>
+                    {% endif %}
                     <!-- Pager-->
                     <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
                 </div>
