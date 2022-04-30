@@ -7,6 +7,9 @@ def home(request):
     posts = Post.objects.filter(estado=True)
     return render(request, 'index.html', {'posts': posts})
 
+def detallePost(request,slug):
+    post = Post.objects.get(slug = slug)
+    return render(request, 'post.html')
 
 def generales(request):
     posts = Post.objects.filter(
