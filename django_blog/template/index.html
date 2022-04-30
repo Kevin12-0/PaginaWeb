@@ -56,20 +56,21 @@
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <!-- Post preview-->
                     {% if posts %}
-                    {% for post in posts %}
-                        <div class="post-preview">
-                            <a href="post.html">
-                                <h2 class="post-title">Man must explore, and this is exploration at its greatest</h2>
-                                <h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>
-                            </a>
-                            <p class="post-meta">
-                                Posted by
-                                <a href="#!">Start Bootstrap</a>
-                                on September 24, 2022
-                            </p>
-                        </div>
-                        <!-- Divider-->
-                        <hr class="my-4" />
+                        {% for post in posts %}
+                            <div class="post-preview">
+                                <a href="post.html">
+                                    <h2 class="post-title">{{ post.titulo }}</h2>
+                                    <h3 class="post-subtitle">{{ post.descripcion }}</h3>
+                                </a>
+                                <p class="post-meta">
+                                    Hecho por: 
+                                    <strong>{{ post.autor }}</strong>
+                                    en {{ post.fecha_creacion }}
+                                </p>
+                            </div>
+                            <!-- Divider-->
+                            <hr class="my-4" />
+                        {% endfor %}
                     {% else %}
                         <h1>No existaen posts registrados</h1>
                     {% endif %}
