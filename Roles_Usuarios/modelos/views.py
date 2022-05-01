@@ -11,20 +11,20 @@ class Inicio(TemplateView):
 
 class ListadoUsuarios(ListView):
     model = Usuarios
-    template_name = 'usuarios/listado_usuario.html'
+    template_name = 'listado_usuario.html'
     context_object_name = 'listar_usuarios'
     queryset = Usuarios.objects.all()
 
 class EditarUsuario(UpdateView):
     model = Usuarios
-    template_name = 'usuarios/registro_usuario.html'
+    template_name = 'registro_usuario.html'
     form_class  = usuarioForm
     success_url = reverse_lazy('listar_usuarios')# nombre de la url
 
 class CrearUsuario(CreateView):
     model = Usuarios
     form_class = usuarioForm
-    template_name = 'usuarios/registro_usuario.html'
+    template_name = 'registro_usuario.html'
     success_url = reverse_lazy('registro')# nombre de la url
 
 class BorrarUsuario(DeleteView):
