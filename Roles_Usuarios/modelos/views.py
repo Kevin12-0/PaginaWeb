@@ -1,3 +1,4 @@
+from xml.parsers.expat import model
 from django import dispatch
 from django.shortcuts import render, redirect
 from .forms import usuarioForm
@@ -26,17 +27,7 @@ class CrearUsuario(CreateView):
     template_name = 'usuarios/registro_usuario.html'
     success_url = reverse_lazy('registro')# nombre de la url
 
-def registrarUsuario(request):
-    if request.method == 'POST':
-        usuarios_form = usuarioForm(request.POST)
-        if usuarios_form.is_valid():
-            usuarios_form.save()
-            return redirect('Index')
-    else:
-        usuarios_form = usuarioForm
-    return render(request, 'usuarios/registro_usuario.html',{'usuarios_form':usuarios_form})
+class BorrarUsuario(DeleteView):
+    model = Usuarios
+    success_url = reverse_lazy('listar_usuarios')
 
-def eliminar_usuarios(request, id):
-    usuario= Usuarios.objects.get(pk=id)
-    usuario.delete()
-    return redirect('listar_usuarios')
