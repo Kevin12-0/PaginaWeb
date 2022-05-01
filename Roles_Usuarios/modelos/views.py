@@ -20,6 +20,12 @@ class EditarUsuario(UpdateView):
     form_class  = usuarioForm
     success_url = reverse_lazy('listar_usuarios')# nombre de la url
 
+class CrearUsuario(CreateView):
+    model = Usuarios
+    form_class = usuarioForm
+    template_name = 'usuarios/registro_usuario.html'
+    success_url = reverse_lazy('registro')# nombre de la url
+
 def registrarUsuario(request):
     if request.method == 'POST':
         usuarios_form = usuarioForm(request.POST)
