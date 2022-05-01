@@ -116,7 +116,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-LOGIN_REDIRECT_URL = reverse_lazy('index.html')
+LOGIN_REDIRECT_URL = reverse_lazy('Index')
 
 
 # Static files (CSS, JavaScript, Images)

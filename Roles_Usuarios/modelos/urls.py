@@ -1,11 +1,11 @@
 
 from django.contrib import admin
 from django.urls import path
+from django.contrib.auth.views import LoginView
 from .views import *
-from django.contrib.auth import *
 
 urlpatterns = [
-    path('',login,{'template_name':'login.html'}, name='login'),
+    path('',LoginView.as_view(template_name = 'login.html'), name='login'),
     path("incio/",Inicio.as_view(), name="Index"),
     path("registro-usuario/",CrearUsuario.as_view(), name="registro"),
     path("listar-usuarios/",ListadoUsuarios.as_view(), name="listar_usuarios"),
