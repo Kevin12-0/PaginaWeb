@@ -20,29 +20,31 @@
           <div class="has-text-centered">
               <img class="login-logo" src="{% static 'assets/img/logo_r_resumme.png' %}">
           </div>
+          <form method="POST">
+            {% csrf_token %}
+              <div class="field">
+                <label class="label">Username</label>
+                <div class="control has-icons-right">
+                  <input class="input" type="text" name= 'username'>
+                  <span class="icon is-small is-right">
+                    <i class="fa fa-user"></i>
+                  </span>
+                </div>
+              </div>
 
-          <div class="field">
-            <label class="label">Username</label>
-            <div class="control has-icons-right">
-              <input class="input" type="text">
-              <span class="icon is-small is-right">
-                <i class="fa fa-user"></i>
-              </span>
-            </div>
-          </div>
-
-          <div class="field">
-            <label class="label">Password</label>
-            <div class="control has-icons-right">
-              <input class="input" type="password">
-              <span class="icon is-small is-right">
-                <i class="fa fa-key"></i>
-              </span>
-            </div>
-          </div>
-          <div class="has-text-centered">
-            <button class="button is-primary">Login</button
-          </div>
+              <div class="field">
+                <label class="label">Password</label>
+                <div class="control has-icons-right">
+                  <input class="input" type="password" name='password'>
+                  <span class="icon is-small is-right">
+                    <i class="fa fa-key"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="has-text-centered">
+                <button class="button is-primary">Login</button>
+              </div>
+            </form>
           <div class="has-text-centered">
             <a href="signup.html"> Don't you have an account? Sign up now!</a>
           </div>

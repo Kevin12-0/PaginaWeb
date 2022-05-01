@@ -1,9 +1,11 @@
+
 from django.contrib import admin
 from django.urls import path
 from .views import *
+from django.contrib.auth import *
 
 urlpatterns = [
-    path('',Login.as_view(),name='login'),
+    path('',login,{'template_name':'login.html'}, name='login'),
     path("incio/",Inicio.as_view(), name="Index"),
     path("registro-usuario/",CrearUsuario.as_view(), name="registro"),
     path("listar-usuarios/",ListadoUsuarios.as_view(), name="listar_usuarios"),
