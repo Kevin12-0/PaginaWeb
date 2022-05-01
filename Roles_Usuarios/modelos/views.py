@@ -1,9 +1,12 @@
+from django import dispatch
 from django.shortcuts import render, redirect
 from .forms import usuarioForm
 from .models import Usuarios
+from django.views.generic import View
 # Create your views here.
-def index(request):
-    return render(request,'index.html')
+class Inicio(View):
+    def get(self, request, *args, **kwargs):
+        return render(request,'index.html')
 def registrarUsuario(request):
     if request.method == 'POST':
         usuarios_form = usuarioForm(request.POST)

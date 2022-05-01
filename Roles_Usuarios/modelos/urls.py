@@ -1,9 +1,9 @@
 from django.contrib import admin
 from django.urls import path
-from .views import index, registrarUsuario,listar_usuarios,editar_usuario,eliminar_usuarios
+from .views import *
 
 urlpatterns = [
-    path("index/",index, name="Index"),
+    path("",Inicio.as_view(), name="index"),
     path("registro-usuario/",registrarUsuario, name="registro"),
     path("listar-usuarios/",listar_usuarios, name="listar_usuarios"),
     path("editar-usuario/<int:id>",editar_usuario, name="editar_usuario"),
