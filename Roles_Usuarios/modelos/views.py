@@ -7,8 +7,6 @@ from django.views.generic import *
 from django.urls import reverse_lazy
 # Create your views here.
 
-class Login(TemplateView):
-    template_name = 'login.html'
 class Inicio(TemplateView):
     template_name = 'index.html'
 
