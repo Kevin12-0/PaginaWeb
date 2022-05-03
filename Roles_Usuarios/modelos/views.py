@@ -1,8 +1,8 @@
-from xml.parsers.expat import model
 from django import dispatch
+from xml.parsers.expat import model
 from django.shortcuts import render, redirect
-from .forms import usuarioForm
-from .models import Usuarios
+from .forms import *
+from .models import *
 from django.views.generic import *
 from django.urls import reverse_lazy
 # Create your views here.
@@ -31,4 +31,23 @@ class CrearUsuario(CreateView):
 class BorrarUsuario(DeleteView):
     model = Usuarios
     success_url = reverse_lazy('listar_usuarios')
+
+# clases de rutas
+
+class ListadoRuta(ListView):
+    model = Ruta
+    template_name = 'registro_ruta.html'
+    context_object_name = 'listar_rutas'
+    queryset = Ruta.objects.all()
+
+class ListadoRuta(ListView):
+    model = Ruta
+    template_name = 'registro_ruta.html'
+    form_class = rutaForm
+    queryset = Ruta.objects.all()
+class CrearRuta(CreateView):
+    model = Ruta
+    form_class = rutaForm
+    template_name = 'registro_ruta.html'
+    success_url = reverse_lazy('registro_ruta')
 

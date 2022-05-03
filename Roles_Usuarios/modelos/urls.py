@@ -13,6 +13,7 @@ urlpatterns = [
     path("listar-usuarios/",login_required(ListadoUsuarios.as_view()), name="listar_usuarios"),
     path("editar-usuario/<int:pk>",login_required(EditarUsuario.as_view()), name="editar_usuario"),
     path("eliminar-usuario/<int:pk>",login_required(BorrarUsuario.as_view()), name="eliminar_usuarios"),
+    path("registro-ruta/",login_required(CrearRuta.as_view()), name="registro_ruta"),
+    path("logout/",login_required(LogoutUsuario),name='logout'),
     path("",Login.as_view(), name="login-2"),
-    path("logout/",login_required(LogoutUsuario),name='logout')
 ]

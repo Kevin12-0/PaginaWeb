@@ -9,15 +9,13 @@
 <body>
     <form method="POST">
         {% csrf_token %}
-            <p>Nombre</p>
-            {{ form.nombre }}
-            <p>Apellido</p>
-            {{ form.apellido }}
-            <p>Correo</p>
-            {{ form.email }}
-            <p>Password</p>
-            {{ form.contrasena }}
-    <a class="btn" href="{% url 'listar_usuarios' %}">Registrar</a>
+        <p>Nombre Ruta</p>
+        {{ form.ruta | bulma }}
+        <p>Codigo Postal</p>
+        {{ form.cp | bulma }}
+        <p>Usuario</p>
+        {{ form.usuario_id | bulma }}
+    <a class="btn" href="{% url '' %}">Registrar</a>
     </form>
     
 </body>
