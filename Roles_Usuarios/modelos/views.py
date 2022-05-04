@@ -18,8 +18,8 @@ class ListadoUsuarios(ListView):
 
 class EditarUsuario(UpdateView):
     model = Usuarios
-    template_name = 'usuarios/registro_usuario.html'
     form_class  = usuarioForm
+    template_name = 'usuarios/registro_usuario.html'
     success_url = reverse_lazy('listar_usuarios')# nombre de la url
 
 class CrearUsuario(CreateView):

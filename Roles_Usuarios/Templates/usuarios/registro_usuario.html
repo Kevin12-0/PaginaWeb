@@ -15,11 +15,13 @@
 <body>
     <form method="POST">
         {% csrf_token %}
+        <div class="">
             {{ form.nombre | bulma }}
             {{ form.apellido | bulma }}
             {{ form.email | bulma }}
             {{ form.contrasena | bulma }}
-        <a class ='button is-primary' href="{% url 'listar_usuarios' %}">Registrar</a>
+        </div>
+       <a href="{% url 'listar_usuarios' %}"><button type="submit" class="button is-primary">Registrar</button></a>
     </form>
 </body>
 </html>
