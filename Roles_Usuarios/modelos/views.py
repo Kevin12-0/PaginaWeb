@@ -11,25 +11,25 @@ class Inicio(TemplateView):
     template_name = 'index.html'
 
 class ListadoUsuarios(ListView):
-    model = Usuarios
+    model = Usuarios_dePrueva
     template_name = 'usuarios/listado_usuario.html'
     context_object_name = 'listar_usuarios'
-    queryset = Usuarios.objects.all()
+    queryset = Usuarios_dePrueva.objects.all()
 
 class EditarUsuario(UpdateView):
-    model = Usuarios
+    model = Usuarios_dePrueva
     form_class  = usuarioForm
     template_name = 'usuarios/registro_usuario.html'
     success_url = reverse_lazy('listar_usuarios')# nombre de la url
 
 class CrearUsuario(CreateView):
-    model = Usuarios
+    model = Usuarios_dePrueva
     form_class = usuarioForm
     template_name = 'usuarios/registro_usuario.html'
     success_url = reverse_lazy('listar_usuarios')# nombre de la url
 
 class BorrarUsuario(DeleteView):
-    model = Usuarios
+    model = Usuarios_dePrueva
     success_url = reverse_lazy('listar_usuarios')
 
 # clases de rutas
@@ -52,4 +52,4 @@ class EditarRuta(UpdateView):
 
 class BorrarRuta(DeleteView):
     model = Ruta
-    success_url = reverse_lazy('listar_ruta')
+    success_url = reverse_lazy('listar_ruta') 

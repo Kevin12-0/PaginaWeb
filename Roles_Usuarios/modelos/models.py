@@ -4,7 +4,7 @@ from hashlib import blake2b
 # Create your models here.
 
 
-class Usuarios (models.Model):
+class Usuarios_dePrueva (models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField('Nombre(s)',max_length= 200, blank= False, null=False)
     apellido = models.CharField('Apellidos',max_length = 200, blank= False, null=False)
@@ -24,7 +24,7 @@ class Ruta(models.Model):
     id = models.AutoField(primary_key=True)
     ruta = models.CharField(max_length=200,blank= False, null=False)
     cp = models.CharField(max_length=5,blank=False, null=False)
-    usuario_id = models.OneToOneField(Usuarios, on_delete= models.CASCADE)
+    usuario_id = models.OneToOneField(Usuarios_dePrueva, on_delete= models.CASCADE)
     fecha_creacion = models.DateField('Fecha de creacion o modificación', auto_now_add=False, auto_now = True)
 
     class Meta:

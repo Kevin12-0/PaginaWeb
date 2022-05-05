@@ -77,10 +77,10 @@ WSGI_APPLICATION = 'Roles_Usuarios.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Roles',
-        'USER': 'postgres',
-        'PASSWORD': 'Home',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'roles',
+        'USER': 'root',
+        'PASSWORD': 'Donas120',
         'HOST': 'localhost',
     }
 }
@@ -104,6 +104,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'usuarios.Usuario'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/

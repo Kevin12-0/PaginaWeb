@@ -3,7 +3,7 @@ from .models import *
 
 class usuarioForm(forms.ModelForm):
     class Meta:
-        model = Usuarios
+        model = Usuarios_dePrueva
         fields = ['nombre', 'apellido', 'email', 'contrasena']
 
 class rutaForm(forms.ModelForm):
