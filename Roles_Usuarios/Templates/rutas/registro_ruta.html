@@ -1,16 +1,26 @@
 <!DOCTYPE html>
+{% load static %}
+{% load bulma_tags %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=>, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
     <title>Nuevo Registro</title>
 </head>
 <body>
     <form method="POST">
         {% csrf_token %}
-    
+        <div>
+            {{ form.ruta | bulma }}
+            {{ form.cp | bulma }}
+            {{ form.usuario_id | bulma }}
+            <a href="{% url 'listar_ruta' %}"><button type="submit" class="button is-primary">Registrar</button></a>
+        </div>
     </form>
-    
 </body>
 </html>

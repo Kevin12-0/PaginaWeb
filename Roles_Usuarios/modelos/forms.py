@@ -7,6 +7,6 @@ class usuarioForm(forms.ModelForm):
         fields = ['nombre', 'apellido', 'email', 'contrasena']
 
 class rutaForm(forms.ModelForm):
-    class meta:
+    class Meta:
         model = Ruta
         fields = ['ruta', 'cp','usuario_id']
