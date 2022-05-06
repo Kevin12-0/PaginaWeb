@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo_pagina %}Listado de Usuarios</title>{% endblock titulo_pagina %}
+</head>
+
+<body>
+    <table>
+        <td>ID</td>
+        <td>RUTA</td>
+        <td>CP</td>
+        <td>Encargado de Ruta</td>
+        <td>FECHA DE CREACION/MODIFICACION</td>
+        <td>Opciones</td>
+        <tbody>
+            {% for Ruta in object_list %}
+            <tr>
+                <td>{{ Ruta.id }}</td>
+                <td>{{ Ruta.ruta }}</td>
+                <td>{{ Ruta.cp }}</td>
+                <td>{{ Ruta.usuario_id }}</td>
+                <td>{{ Ruta.fecha_creacion }}</td>
+                <td>
+                    <a href="{% url 'editar_ruta' Ruta.id %}">
+                        <button>Editar</button>
+                    </a>
+                </td>
+                <td>
+                    <form action="{% url 'eliminar_ruta' Ruta.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>  
+</body>
+</html>
