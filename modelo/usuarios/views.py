@@ -7,7 +7,9 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import login, logout
 from .forms import *
 from django.urls import *
-
+from django.views.generic import *
+from .models import *
+from .forms import *
 class Login(FormView):
     template_name = 'login.html'
     form_class = FormularioLogin
@@ -28,3 +30,15 @@ class Login(FormView):
 def LogoutUsuario(request):
     logout(request)
     return redirect('login-2')
+
+
+class RegistrarUsuario(CreateView):
+    model = Usuario
+    form_class = FormularioUsuario
+    template_name = 'signup.html'
+    success_url = reverse_lazy('login-2')
+class ListadoSuperUsuarios(ListView):
+    model = Usuario
+    template_name = 'superusuarios/listado_superuser.html'
+    queryset = Usuario.objects.filter(usuario_activo = True)
+

@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from .views import *
 from usuarios.views import *
 
+
 urlpatterns = [
     path("",Login.as_view(), name="login-2"),
     path("incio/",login_required(Inicio.as_view()), name="Index"),
@@ -19,5 +20,7 @@ urlpatterns = [
     path('eliminar-ruta/<int:pk>/',login_required(BorrarRuta.as_view()), name="eliminar_ruta"),
 
     path("logout/",login_required(LogoutUsuario),name='logout'),
+    path('crear_usuario/',RegistrarUsuario.as_view(),name="crear_usuario"),
+    path('listar-superusers/',login_required(ListadoSuperUsuarios.as_view()),name='listar_superusers')
     
 ]
