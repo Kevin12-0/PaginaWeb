@@ -66,5 +66,17 @@ class FormularioUsuario(forms.ModelForm):
             )
 
         }
+    
+    def clean_password2(self):
+        """
+            este es el metodo para validar que ambas contraseñas sean
+            igules
 
+            validartionError si las contraseñas no coninciden 
+        """
+        password1 = self.cleaned_data.get('password1')
+        password2 = self.cleaned_data.get('password2')
+        if password1 != password2:
+            raise forms.ValidationError('Las contraseñas no coinciden')
+        return password2
         
