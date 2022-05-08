@@ -19,8 +19,10 @@ urlpatterns = [
     path('editar-ruta/<int:pk>/',login_required(EditarRuta.as_view()), name="editar_ruta"),
     path('eliminar-ruta/<int:pk>/',login_required(BorrarRuta.as_view()), name="eliminar_ruta"),
 
-    path("logout/",login_required(LogoutUsuario),name='logout'),
     path('crear_usuario/',RegistrarUsuario.as_view(),name="crear_usuario"),
-    path('listar-superusers/',login_required(ListadoSuperUsuarios.as_view()),name='listar_superusers')
+    path('listar-superusers/',login_required(ListadoSuperUsuarios.as_view()),name='listar_superusers'),
+
+    path("logout/",login_required(LogoutUsuario),name='logout'),
+    
     
 ]
