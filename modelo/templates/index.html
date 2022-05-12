@@ -7,10 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Bienvenido {{ user.username }}</h1>
+    <h1>Bienvenido {{ user.nombres }}</h1>
     <div>
-        <a class='btn' href="{% url 'listar_usuarios' %}">Listar Usuarios</a>
-        <br>
+        {% if request.user.is_staff %}
+            <a class='btn' href="{% url 'listar_usuarios' %}">Listar Usuarios</a>
+            <br>
+        {% endif %}
         <br>
         <a class='btn' href="{% url 'registro' %}">Registro de usuario</a>
         <br>
@@ -21,8 +23,10 @@
         <a class='btn' href="{% url 'listar_ruta' %}">Listar ruta</a>
         <br>
         <br>
-        <a class='btn' href="{% url 'listar_superusers' %}">Listar Super Usuarios</a>
-        <br>
+        {% if request.user.is_staff %}
+            <a class='btn' href="{% url 'listar_superusers' %}">Listar Super Usuarios</a>
+            <br>
+        {% endif %}
         <br>
         <a class='btn' href="{% url 'logout' %}">Salir</a>
     </div>

@@ -42,3 +42,12 @@ class ListadoSuperUsuarios(ListView):
     template_name = 'superusuarios/listado_superuser.html'
     queryset = Usuario.objects.filter(usuario_activo = True)
 
+class EditarSuperUsuario(UpdateView):
+    model = Usuario
+    form_class  = FormularioUsuario
+    template_name = 'signup.html'
+    success_url = reverse_lazy('listar_superusers')# nombre de la url
+
+class EliminarSuperUser(DeleteView):
+    model = Usuario
+    success_url = reverse_lazy('listar_superusers')

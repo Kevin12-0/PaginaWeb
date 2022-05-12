@@ -11,7 +11,6 @@
 <body>
     <table>
         <td>ID</td>
-        <td>PASSWORD</td>
         <td>USERNAME</td>
         <td>EMAIL</td>
         <td>NOMBRES</td>
@@ -22,19 +21,19 @@
             {% for Usuario in object_list %}
             <tr>
                 <td>{{ Usuario.id }}</td>
-                <td>{{ Usuario.password }}</td>
                 <td>{{ Usuario.username }}</td>
                 <td>{{ Usuario.email }}</td>
                 <td>{{ Usuario.nombres }}</td>
                 <td>{{ Usuario.apellidos }}</td>
                 <td>{{ Usuario.imagen }}></td>
+                <td>{{ Usuario.usuario_administrador }}</td>
                 <td>
-                    <a href="">
+                    <a href="{% url 'editar_SuperUser' Usuario.id %}">
                         <button>Editar</button>
                     </a>
                 </td>
                 <td>
-                    <form action="" method="post">
+                    <form action='{% url "eliminar_SuperUser" Usuario.id %}' method="post">
                         {% csrf_token %}
                         <button type="submit">Eliminar</button>
                     </form>

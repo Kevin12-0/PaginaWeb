@@ -21,7 +21,9 @@ urlpatterns = [
 
     path('crear_usuario/',RegistrarUsuario.as_view(),name="crear_usuario"),
     path('listar-superusers/',login_required(ListadoSuperUsuarios.as_view()),name='listar_superusers'),
-
+    path('editar-super-usuario/<int:pk>/',login_required(EditarSuperUsuario.as_view()),name='editar_SuperUser'),
+    path('eliminar-superusuario/<int:pk>/',login_required(EliminarSuperUser.as_view()),name = 'eliminar_SuperUser'),
+    
     path("logout/",login_required(LogoutUsuario),name='logout'),
     
     
