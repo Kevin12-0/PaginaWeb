@@ -7,8 +7,14 @@
     <title>Document</title>
 </head>
 <body>
+        <!-- 
+            en la parte de {{ user.nombres }} es para mostar el  nombre
+        -->
     <h1>Bienvenido {{ user.nombres }}</h1>
     <div>
+        <!-- 
+            si el usuario es staff no aparecera lo que esta dentro de el {% if %}{% endif %}
+        -->
         {% if request.user.is_staff %}
             <a class='btn' href="{% url 'listar_usuarios' %}">Listar Usuarios</a>
             <br>

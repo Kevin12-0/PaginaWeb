@@ -2,6 +2,9 @@ from django.db import models
 # Create your models here.
 
 
+"""
+    modelos de prueba para realizar cruds desde los usuarios 
+"""
 class Usuarios (models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField('Nombre(s)',max_length= 200, blank= False, null=False)
@@ -10,6 +13,7 @@ class Usuarios (models.Model):
     contrasena = models.CharField('Contraseña',max_length = 200, blank= False, null=False)
     fecha_creacion = models.DateField('Fecha de creacion o modificación', auto_now_add=False, auto_now = True)
 
+#  para definir los nombre de las tablas dentro de django
     class Meta:
         verbose_name = 'Usuarios'
         verbose_name_plural = 'Usuario(s)'

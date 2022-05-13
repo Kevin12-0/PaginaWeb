@@ -3,7 +3,9 @@ from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 from .models import *
 
-
+"""
+    Formulario login, define como tal el tipo de formulario que se usara para el inicio de sesion
+"""
 class FormularioLogin(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super(FormularioLogin, self).__init__(*args, **kwargs)

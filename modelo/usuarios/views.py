@@ -11,12 +11,20 @@ from django.views.generic import *
 from .models import *
 from .forms import *
 class Login(FormView):
+    """
+        logica del login tomando como referencia nucleo django y usuando csrf_token,
+        todo se tienen que hacer mediante decoradores y mediante clases
+        DECORADORES
+        from django.views.decorators.cache import *
+        from django.views.decorators.csrf import *
+    """
+
     template_name = 'login.html'
     form_class = FormularioLogin
     success_url = reverse_lazy('Index')
 
-    @method_decorator(csrf_protect)
-    @method_decorator(never_cache)
+    @method_decorator(csrf_protect) #decorador 
+    @method_decorator(never_cache) # decprador
     def dispatch(self,request,*args, **kwargs):
         if request.user.is_authenticated:
             return HttpResponseRedirect(self.get_success_url())
@@ -31,7 +39,9 @@ def LogoutUsuario(request):
     logout(request)
     return redirect('login-2')
 
-
+"""
+    cruds para los usuarios, bassandonos en la logica de las vistas
+"""
 class RegistrarUsuario(CreateView):
     model = Usuario
     form_class = FormularioUsuario

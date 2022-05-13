@@ -6,7 +6,17 @@ from .models import *
 from django.views.generic import *
 from django.urls import reverse_lazy
 # Create your views here.
+"""
+    TempleteView: es solo para mostrar un templete, no da mas funciones
+    ListView: es usado para poder listar tus registros , aunque es nesesario el 
+    context_objet_name para poder definile un nombre
+    EditView: es para poder editar registros que se hayan hecho, se usa reverse_lazy por que es una forma de 
+    redirigir a otra pagina
+    DeleteView: es usado para poder elimiar registros
 
+    "Nota": --todas la vistas estan basadas en classes para poder ahorrar codigo, la libreria para eso es
+            from django.views.generic import * y para reverse lazay es from django.urls import reverse_lazy ----
+"""
 class Inicio(TemplateView):
     template_name = 'index.html'
 

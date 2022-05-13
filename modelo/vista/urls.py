@@ -4,7 +4,13 @@ from django.urls import path
 from django.contrib.auth.decorators import login_required
 from .views import *
 from usuarios.views import *
-
+"""
+    login_requiered se usa para que el usuario pueda acceder a las urls estando forsosamente logeado
+    .as_view se usa para llamar a las clases vistas
+"""
+"""
+    todas las urls se ven desde aqui, desde la primer app creada
+"""
 
 urlpatterns = [
     path("",Login.as_view(), name="login-2"),
@@ -23,8 +29,11 @@ urlpatterns = [
     path('listar-superusers/',login_required(ListadoSuperUsuarios.as_view()),name='listar_superusers'),
     path('editar-super-usuario/<int:pk>/',login_required(EditarSuperUsuario.as_view()),name='editar_SuperUser'),
     path('eliminar-superusuario/<int:pk>/',login_required(EliminarSuperUser.as_view()),name = 'eliminar_SuperUser'),
-    
+
     path("logout/",login_required(LogoutUsuario),name='logout'),
-    
+    """
+        se cambia el campo id por pk cuando se usan vistas, por que el formato que usa
+        django desde su nucleo
+    """
     
 ]
