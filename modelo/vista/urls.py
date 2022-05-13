@@ -31,9 +31,10 @@ urlpatterns = [
     path('eliminar-superusuario/<int:pk>/',login_required(EliminarSuperUser.as_view()),name = 'eliminar_SuperUser'),
 
     path("logout/",login_required(LogoutUsuario),name='logout'),
-    """
-        se cambia el campo id por pk cuando se usan vistas, por que el formato que usa
-        django desde su nucleo
-    """
-    
+
 ]
+"""
+    se cambia el campo id por pk cuando se usan vistas, por que el formato que usa
+    django desde su nucleo
+"""
+    
