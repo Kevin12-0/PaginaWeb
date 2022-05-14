@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <!-- 
+            en la parte de {{ user.nombres }} es para mostar el  nombre
+        -->
+    <h1>Bienvenido {{ user.nombres }}</h1>
+    <div>
+        <!-- 
+            si el usuario es staff no aparecera lo que esta dentro de el if endif
+        -->
+        {% if request.user.is_staff %}
+            <a class='btn' href="{% url 'listar_usuarios' %}">Listar Usuarios</a>
+            <br>
+        {% endif %}
+        <br>
+        <a class='btn' href="{% url 'registro' %}">Registro de usuario</a>
+        <br>
+        <br>
+        <a class='btn' href="{% url 'registro_ruta' %}">Registro Ruta</a>
+        <br>
+        <br>
+        <a class='btn' href="{% url 'listar_ruta' %}">Listar ruta</a>
+        <br>
+        <br>
+        {% if request.user.is_staff %}
+            <a class='btn' href="{% url 'listar_superusers' %}">Listar Super Usuarios</a>
+            <br>
+        {% endif %}
+        <br>
+        <a class='btn' href="{% url 'logout' %}">Salir</a>
+    </div>
+</body>
+</html>
